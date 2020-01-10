@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app='ngCheckers'>
+
+  <head>
+	<title>Damas inglesas</title>
+    <link rel="stylesheet" type="text/css" href="ngCheckers.css">
+  </head> 
+
+  <body ng-controller="checkersCtrl">
+	<div style="background-image: url('background.jpg');">
+	<h1>JUEGO DE DAMAS</h1>
+	<h2>Segundo Parcial</h2>
+	
+    <div id="gameContainer">
+      <div>
+          <div class="row" ng-repeat="row in board">
+              <div class="square" ng-style="setClass(square)" ng-repeat="square in row track by $index" ng-click="select(square)">
+                <div ng-style="setStyling(square)" class="circle">
+                  <span>{{square.isKing ? 'K' : ''}}</span>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div>Turno : {{player}}</div>
+    <div>Puntuacion Rojos : {{redScore}}</div>
+    <div>Puntuacion Negros : {{blackScore}}</div>
+
+    <script src="angular.min.js"></script>
+    <script src="ngCheckers.js"></script> 
+  </body>
+
+</html>
